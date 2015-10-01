@@ -19,18 +19,18 @@ GET: ``http://localhost:3000/posts/``
 #### Post by ID
 GET: ``http://localhost:3000/post/:id``
 
-## Show Hidden Posts
+#### Show Hidden Posts
 GET: ``http://localhost:3000/posts?showHidden=1``
 
-## Add Post
+#### Add Post
 POST: ``http://localhost:3000/post/add``
 Check Post Schema
 
-## Delete a Post
+#### Delete a Post
 PUT: ``http://localhost:3000/post/del``
 _id as key, and sets the post as hidden.
 
-## Edit a Post
+#### Edit a Post
 PUT: ``http://localhost:3000/post/edit``
 
 Theres a couple of TODOs, I will add more validations and make it a bit more secure. 
