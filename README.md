@@ -33,6 +33,8 @@ _id as key, and sets the post as hidden.
 #### Edit a Post
 PUT: ``http://localhost:3000/post/edit``
 
+___
+
 Theres a couple of TODOs, I will add more validations and make it a bit more secure. 
 
 Enjoy,
