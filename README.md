@@ -5,7 +5,7 @@ Everyone needs an API these days, am I right? So, this is a basic API (as the na
 Built with Express and Mongoose
 
 ### Using Git
-1. Clone this repository: ``$ git clone https://github.com/okbel/basicapi.git``
+1. Clone this repository: ``$ git clone https://github.com/okbel/basicAPI.git``
 2. Install the dependencies in the repository folder: ``$ npm install``
 3. Run MongoDB: ``$ sudo mongod``
 4. Run the server instance: ``$ npm start``
