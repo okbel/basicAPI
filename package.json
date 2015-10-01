@@ -1,0 +1,25 @@
+{
+  "name": "basic-api",
+  "version": "0.0.1",
+  "private": false,
+  "description": "Just a Basic API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "nodemon server.js",
+    "populatedb": ""
+  },
+  "author": "Belen Curcio",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "mongodb": "^1.4.0",
+    "mongoose": "^4.1.6",
+    "q": "^1.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/okbel/basicapi.git"
+  }
+}
