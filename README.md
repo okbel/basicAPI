@@ -2,7 +2,7 @@
 
 Everyone needs an API these days, am I right? So, this is a basic API (as the name says) with a nice M(V)C structure.
 
-Built with Express and Mongoose
+Built with Express and Mongoose, and ES6 Promises
 
 **'Cause if you liked it, then you should have put a star on it.**
 
