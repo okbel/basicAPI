@@ -66,11 +66,10 @@ PostSchema.statics = {
 	},
 	del: function (objectId) {
 
-		//Not a real delete.
 		let deferred = Q.defer(),
 			query = '';
 
-		query = this.where().findOneAndUpdate({ _id: objectId }, {hidden: 1}, function (err) {
+		query = this.findByIdAndRemove(objectId, function (err) {
 			if (err) {
 				deferred.reject(err);
 			}
