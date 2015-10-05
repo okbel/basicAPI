@@ -1,8 +1,7 @@
 'use strict';
 
 const
-	mongoose = require('mongoose'),
-	Q = require('q');
+	mongoose = require('mongoose');
 
 const
 	Schema = mongoose.Schema,

@@ -1,6 +1,6 @@
 {
   "name": "basic-api",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "description": "Just a Basic API",
   "main": "server.js",
@@ -15,11 +15,10 @@
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
     "mongodb": "^1.4.0",
-    "mongoose": "^4.1.6",
-    "q": "^1.4.1"
+    "mongoose": "^4.1.6"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/okbel/basicapi.git"
+    "url": "https://github.com/okbel/basicAPI.git"
   }
 }

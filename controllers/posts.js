@@ -2,8 +2,7 @@
 
 const
 	post = require('../models/post'),
-	mongoose = require('mongoose'),
-	Q = require('q');
+	mongoose = require('mongoose');
 
 const
 	PostModel = mongoose.model('Post');
