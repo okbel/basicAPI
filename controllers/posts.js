@@ -13,7 +13,7 @@ exports.list = function (req, res){
 	criteria = req.query;
 
 	PostModel.list(criteria).then(function(posts) {
-		res.send(posts);
+		res.status(200).send(posts);
 	});
 
 };
@@ -24,8 +24,7 @@ exports.get = function (req, res){
 	PostModel.get(objectId).then(function(posts) {
 		res.send(posts);
 	}, function(err) {
-		res.status(400);
-        res.send({ error: 'Bad Request', details: 'Post Not Found' });
+		res.status(404).send({ error: 'Bad Request', details: 'Post Not Found' });
 	});
 
 };
@@ -39,38 +38,34 @@ exports.add = function (req, res){
 
 	PostModel.add(post).then(function(post) {
 		console.log('New Post Created:', post);
-		res.send(post);
+		res.status(201).send(post);
 	}, function(err) {
-		res.status(400);
-        res.send({ error: 'Bad Request', details: 'Post cannot be added, ' + err.message });
+		res.status(422).send({ error: 'Bad Request', details: 'Post cannot be added, ' + err.message });
 	});
 	
 };
 
 exports.del = function (req, res){
-	//TODO: Add validation
-	let objectId = req.body._id;
+	let objectId = req.params._id;
 
 	PostModel.del(objectId).then(function(id) {
-		res.send({message:'Success deleting a post id:' + id});
+		console.log('si');
+		res.status(204).end();
 	}, function(err) {
-		res.status(400);
-        res.send({ error: 'Bad Request', details: 'Post cannot be deleted, ' + err.message });
+		console.log('no');
+		res.status(400).send({ error: 'Bad Request', details: 'Post cannot be deleted, ' + err.message });
 	});
 };
 
 exports.edit = function (req, res){
 	//TODO: Add validation
-	let objectId = req.body._id,
+	let objectId = req.params._id,
 		attributes = JSON.parse(JSON.stringify(req.body));
-
-	console.log('attr', attributes);
 
 	PostModel.edit(objectId, attributes).then(function() {
 		console.log('Post id:' + objectId + ' has been modified.');
-		res.send({message:'Success updating post id:' + objectId});
+		res.status(200).end();
 	}, function(err) {
-		res.status(400);
-        res.send({ error: 'Bad Request', details: 'Post cannot be edited, ' + err.message });
+		res.status(400).send({ error: 'Bad Request', details: 'Post cannot be edited, ' + err.message });
 	});
 };
