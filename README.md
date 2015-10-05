@@ -24,21 +24,32 @@ http://okbel.github.io/basicAPI/
 GET: ``http://localhost:3000/posts/``
 
 #### Post by ID
-GET: ``http://localhost:3000/post/:id``
+GET: ``http://localhost:3000/posts/:id``
 
 #### Show Hidden Posts
 GET: ``http://localhost:3000/posts?showHidden=1``
 
 #### Add Post
-POST: ``http://localhost:3000/post/add``
-Check Post Schema
+POST: ``http://localhost:3000/posts``
+
+> *Parameters:*
+> - title
+> - author
+> - body
+
+(Check Schema)
 
 #### Delete a Post
-PUT: ``http://localhost:3000/post/del``
-_id as key, and sets the post as hidden.
+DEL: ``http://localhost:3000/posts/:id``
 
 #### Edit a Post
-PUT: ``http://localhost:3000/post/edit``
+PUT: ``http://localhost:3000/posts/:id``
+
+> *Parameters:*
+> - title
+> - author
+> - body
+(Check Schema)
 
 ***
 
