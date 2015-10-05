@@ -14,18 +14,23 @@ exports.list = function (req, res){
 
 	PostModel.list(criteria).then(function(posts) {
 		res.status(200).send(posts);
-	});
+	})
+	.then(null, function(err) {
+       	res.status(200).send({ error: 'No data', details: 'No posts Found ', message: err.message });
+    });
 
 };
 
 exports.get = function (req, res){
 	let objectId = req.params._id;
 
-	PostModel.get(objectId).then(function(posts) {
-		res.send(posts);
-	}, function(err) {
-		res.status(404).send({ error: 'Bad Request', details: 'Post Not Found' });
-	});
+    PostModel.get(objectId)
+    .then(function (posts) {
+        res.send(posts);
+    })
+    .then(null, function(err) {
+       	res.status(404).send({ error: 'Bad Request', details: 'Post Not Found ', message: err.message });
+    });
 
 };
 

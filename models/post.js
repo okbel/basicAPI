@@ -20,7 +20,7 @@ PostSchema.path('author').required(true, 'Post Author cannot be blank');
 PostSchema.path('body').required(true, 'Post Body should not be blank');
 
 PostSchema.methods = {
-	postExists: function() {
+	verifyPost: function() {
 		// TODO
 		return true;
 	}
@@ -28,26 +28,18 @@ PostSchema.methods = {
 
 PostSchema.statics = {
 	list: function (criteria) {
-		let deferred = Q.defer(),
-			query = '';
-
+		let query;
+		
 		if (criteria.showHidden == 1){
 			query = this.find().where({hidden: 1}).exec();
 		} else {
 			query = this.find().where({hidden: 0}).exec();
 		}	
 
-		deferred.resolve(query);
-		return deferred.promise;
+		return query;
 	},
 	get: function (objectId) {
-		let deferred = Q.defer(),
-			query = '';
-
-		query = this.findOne({ _id: objectId }).exec();
-
-		deferred.resolve(query);
-		return deferred.promise;
+		return this.findOne({ _id: objectId }).exec();
 	},
 	add: function (post) {
 		let deferred = Q.defer();
