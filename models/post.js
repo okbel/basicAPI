@@ -29,7 +29,7 @@ PostSchema.methods = {
 PostSchema.statics = {
 	list: function (criteria) {
 		let query;
-		
+
 		if (criteria.showHidden == 1){
 			query = this.find().where({hidden: 1}).exec();
 		} else {
@@ -42,47 +42,13 @@ PostSchema.statics = {
 		return this.findOne({ _id: objectId }).exec();
 	},
 	add: function (post) {
-		let deferred = Q.defer();
-
-		post.save(function (err) {
-			// Validation error
-			if (err) {
-				deferred.reject(err);
-			}
-
-		}).then(function(post){
-			deferred.resolve(post);
-		});
-
-		return deferred.promise;
+		return post.save();
 	},
 	del: function (objectId) {
-
-		let deferred = Q.defer(),
-			query = '';
-
-		query = this.findByIdAndRemove(objectId, function (err) {
-			if (err) {
-				deferred.reject(err);
-			}
-		});
-
-		deferred.resolve(objectId);
-		return deferred.promise;
-		
+		return this.findByIdAndRemove(objectId);	
 	},
 	edit: function (objectId, attributes) {
-		let deferred = Q.defer(),
-			query = '';
-
-		query = this.where().findOneAndUpdate({ _id: objectId }, attributes, function (err) {
-			if (err) {
-				deferred.reject(err);
-			}
-		});
-
-		deferred.resolve(attributes);
-		return deferred.promise;
+		return this.findOneAndUpdate({ _id: objectId }, attributes);
 	}
 };
 
