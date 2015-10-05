@@ -58,7 +58,7 @@
 <h4>
 <a id="post-by-id" class="anchor" href="#post-by-id" aria-hidden="true"><span class="octicon octicon-link"></span></a>Post by ID</h4>
 
-<p>GET: <code>http://localhost:3000/post/:id</code></p>
+<p>GET: <code>http://localhost:3000/posts/:id</code></p>
 
 <h4>
 <a id="show-hidden-posts" class="anchor" href="#show-hidden-posts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Show Hidden Posts</h4>
@@ -68,19 +68,40 @@
 <h4>
 <a id="add-post" class="anchor" href="#add-post" aria-hidden="true"><span class="octicon octicon-link"></span></a>Add Post</h4>
 
-<p>POST: <code>http://localhost:3000/post/add</code>
-Check Post Schema</p>
+<p>POST: <code>http://localhost:3000/posts</code></p>
+
+<blockquote>
+<p><em>Parameters:</em></p>
+
+<ul>
+<li>title</li>
+<li>author</li>
+<li>body</li>
+</ul>
+</blockquote>
+
+<p>(Check Schema)</p>
 
 <h4>
 <a id="delete-a-post" class="anchor" href="#delete-a-post" aria-hidden="true"><span class="octicon octicon-link"></span></a>Delete a Post</h4>
 
-<p>PUT: <code>http://localhost:3000/post/del</code>
-_id as key, and sets the post as hidden.</p>
+<p>DEL: <code>http://localhost:3000/posts/:id</code></p>
 
 <h4>
 <a id="edit-a-post" class="anchor" href="#edit-a-post" aria-hidden="true"><span class="octicon octicon-link"></span></a>Edit a Post</h4>
 
-<p>PUT: <code>http://localhost:3000/post/edit</code></p>
+<p>PUT: <code>http://localhost:3000/posts/:id</code></p>
+
+<blockquote>
+<p><em>Parameters:</em></p>
+
+<ul>
+<li>title</li>
+<li>author</li>
+<li>body
+(Check Schema)</li>
+</ul>
+</blockquote>
 
 <hr>
 
