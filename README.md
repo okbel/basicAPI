@@ -27,10 +27,13 @@ http://okbel.github.io/basicAPI/
 GET: ``http://localhost:3000/posts/``
 
 #### Post by ID
-GET: ``http://localhost:3000/posts/:id``
+GET: ``http://localhost:3000/posts/<id>``
 
-#### Show Hidden Posts
-GET: ``http://localhost:3000/posts?showHidden=1``
+#### Show Hidden Posts 
+GET: ``http://localhost:3000/posts?<field>=<value>&limit=<number>``
+
+For example: ``http://localhost:3000/posts?hidden=1&limit=2``
+        
 
 #### Add Post
 POST: ``http://localhost:3000/posts``
@@ -43,10 +46,10 @@ POST: ``http://localhost:3000/posts``
 (Check Schema)
 
 #### Delete a Post
-DEL: ``http://localhost:3000/posts/:id``
+DEL: ``http://localhost:3000/posts/<id>``
 
 #### Edit a Post
-PUT: ``http://localhost:3000/posts/:id``
+PUT: ``http://localhost:3000/posts/<id>``
 
 > *Parameters:*
 > - title
