@@ -1,18 +1,28 @@
 'use strict';
 
 const
-	post = require('../models/post'),
-	mongoose = require('mongoose');
+	mongoose = require('mongoose'),
+	_ = require('underscore');
 
 const
+	post = require('../models/post'),
 	PostModel = mongoose.model('Post');
 
 mongoose.Promise = global.Promise; // ES6 mongoose implementation
 
 
 exports.list = function (req, res){
-	let criteria = {showHidden: 0};
-	criteria = req.query;
+	let criteria = {
+		query: {},
+		limit: null
+	};
+
+	if (_.has(req.query, 'limit')) {
+		criteria.limit = req.query.limit;
+		delete req.query.limit;
+	}
+
+	_.extend(criteria.query, req.query);
 
 	PostModel.list(criteria).then(function(posts) {
 		res.status(200).send(posts);

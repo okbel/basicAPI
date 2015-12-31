@@ -18,24 +18,11 @@ PostSchema.path('title').required(true, 'Post title cannot be blank');
 PostSchema.path('author').required(true, 'Post Author cannot be blank');
 PostSchema.path('body').required(true, 'Post Body should not be blank');
 
-PostSchema.methods = {
-	verifyPost: function() {
-		// TODO
-		return true;
-	}
-};
+PostSchema.methods = {};
 
 PostSchema.statics = {
 	list: function (criteria) {
-		let query;
-
-		if (criteria.showHidden == 1){
-			query = this.find().where({hidden: 1}).exec();
-		} else {
-			query = this.find().where({hidden: 0}).exec();
-		}	
-
-		return query;
+		return this.find(criteria.query).limit(criteria.limit).exec();
 	},
 	get: function (objectId) {
 		return this.findOne({ _id: objectId }).exec();
