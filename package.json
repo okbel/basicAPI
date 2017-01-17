@@ -6,7 +6,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "nodemon server.js",
+    "dev:start": "NODE_ENV=development nodemon server.js",
     "populatedb": ""
   },
   "author": "Belen Curcio",
